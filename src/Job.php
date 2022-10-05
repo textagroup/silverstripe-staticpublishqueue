@@ -104,7 +104,8 @@ abstract class Job extends AbstractQueuedJob
 
     public function getSignature(): string
     {
-        return md5(implode('-', [static::class, implode('-', array_keys($this->URLsToProcess))]));
+        return md5(implode('-', [static::class, implode('-',
+            array_keys((array)$this->URLstoProcess))]));
     }
 
     public function process(): void
